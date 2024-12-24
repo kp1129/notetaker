@@ -12,10 +12,10 @@ function Header() {
   const { user } = useUser();
 
   return (
-    <div className="border flex items-center justify-between p-2">
+    <div className="border flex items-center justify-between p-5">
       {/* welcome */}
       {user && (
-        <h1>
+        <h1 className="text-2xl">
           {user?.firstName}
           {`'s`} Space
         </h1>
