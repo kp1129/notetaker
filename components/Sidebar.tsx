@@ -108,6 +108,22 @@ function Sidebar() {
       </div>
 
       {/* Shared Docs */}
+      <div className="flex py-4 flex-col space-y-4 md:max-w-36">
+        {groupedData.editor.length > 0 && (
+          <>
+            <h2 className="text-gray-500 font-semibold text-sm">
+              Shared with Me
+            </h2>
+            {groupedData.editor.map((doc) => (
+              <SidebarOption
+                key={doc.id}
+                href={`/doc/${doc.id}`}
+                id={doc.id}
+              ></SidebarOption>
+            ))}
+          </>
+        )}
+      </div>
     </>
   );
   return (
