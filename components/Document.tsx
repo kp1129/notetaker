@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import { useDocumentData } from "react-firebase-hooks/firestore";
+import Editor from "./Editor";
 
 function Document({ id }: { id: string }) {
   const [data, loading, error] = useDocumentData(doc(db, "documents", id));
@@ -30,7 +31,7 @@ function Document({ id }: { id: string }) {
     }
   };
   return (
-    <div>
+    <div className="flex-1 h-full bg-white p-5">
       <div className="flex max-w-6xl mx-auto justify-between pb-5">
         {/* Update Doc Title */}
         <form className="flex space-x-2 flex-1" onSubmit={handleUpdateTitle}>
@@ -40,6 +41,9 @@ function Document({ id }: { id: string }) {
           </Button>
         </form>
       </div>
+
+      <hr className="pb-10" />
+      <Editor />
     </div>
   );
 }
